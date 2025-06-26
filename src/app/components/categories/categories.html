@@ -1,0 +1,102 @@
+<!-- <div class="categories-container">
+  <div class="categories-header mb-3">
+    <h5 class="fw-bold text-primary mb-2">
+      <mat-icon class="me-2">restaurant_menu</mat-icon>
+      Categorías
+    </h5>
+
+    <button
+      mat-stroked-button
+      color="warn"
+      class="w-100"
+      (click)="clearAllFilters()"
+      [disabled]="!hasSelectedCategories"
+    >
+      <mat-icon class="me-1">clear</mat-icon>
+      Limpiar filtros
+    </button>
+  </div>
+
+  <div class="categories-list">
+    @for (category of categories; track category.id) {
+    <div class="category-item mb-2 p-2 rounded">
+      <mat-checkbox
+        [(ngModel)]="category.selected"
+        (change)="onCategoryChange(category)"
+        class="w-100"
+      >
+        <div class="d-flex align-items-center">
+          <mat-icon class="category-icon me-2">{{ category.icon }}</mat-icon>
+          <span class="category-name">{{ category.name }}</span>
+        </div>
+      </mat-checkbox>
+    </div>
+    }
+  </div>
+
+  @if (hasSelectedCategories) {
+  <div class="selected-info mt-3 p-2 bg-light rounded">
+    <small class="text-muted">
+      <mat-icon class="me-1" style="font-size: 16px">filter_list</mat-icon>
+      {{ selectedCount }} categoría{{ selectedCount > 1 ? 's' : '' }}
+      seleccionada{{ selectedCount > 1 ? 's' : '' }}
+    </small>
+  </div>
+  }
+</div> -->
+
+<div class="categories-container shadow rounded p-3 bg-white">
+  <!-- Header -->
+  <div
+    class="categories-header d-flex align-items-center justify-content-between mb-3"
+  >
+    <div class="d-flex align-items-center gap-2">
+      <mat-icon class="header-icon text-primary">restaurant_menu</mat-icon>
+      <span class="fw-bold fs-5 text-primary">Categorías</span>
+    </div>
+    <button
+      mat-stroked-button
+      color="warn"
+      class="clear-btn"
+      (click)="clearAllFilters()"
+      [disabled]="!hasSelectedCategories"
+    >
+      <mat-icon class="me-1">clear</mat-icon>
+      Limpiar
+    </button>
+  </div>
+
+  <!-- Categories List with Checkboxes -->
+  <div class="categories-list">
+    @for (category of categories; track category.id) {
+    <div class="category-item d-flex align-items-center gap-2 mb-2 p-2 rounded">
+      <mat-checkbox
+        [(ngModel)]="category.selected"
+        (change)="onCategoryChange(category)"
+        class="category-checkbox"
+      >
+      </mat-checkbox>
+      <mat-icon class="category-icon">{{ category.icon }}</mat-icon>
+      <span class="category-name flex-grow-1">{{ category.name }}</span>
+      @if (category.selected) {
+      <span class="badge bg-primary-subtle text-primary-emphasis ms-auto">
+        <mat-icon style="font-size: 16px; vertical-align: middle"
+          >check</mat-icon
+        >
+      </span>
+      }
+    </div>
+    }
+  </div>
+
+  <!-- Selected count -->
+  @if (hasSelectedCategories) {
+  <div class="selected-info mt-3 p-2 bg-light rounded text-center">
+    <small class="text-muted">
+      <mat-icon class="me-1" style="font-size: 16px">filter_list</mat-icon>
+      {{ selectedCount }} categoría{{ selectedCount > 1 ? 's' : '' }}
+      seleccionada{{ selectedCount > 1 ? 's' : '' }}
+    </small>
+  </div>
+  }
+</div>
