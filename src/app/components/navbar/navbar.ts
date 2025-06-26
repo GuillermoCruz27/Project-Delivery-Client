@@ -8,5 +8,6 @@ import { MatInputModule } from '@angular/material/input';
   selector: 'app-navbar',
   imports: [MatFormFieldModule, MatInputModule, MatIconModule, MatButtonModule],
   templateUrl: './navbar.html',
+  styleUrls: ['./navbar.css'],
 })
 export class Navbar {}
