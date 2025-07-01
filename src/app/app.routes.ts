@@ -3,6 +3,7 @@ import { Home } from './pages/home/home';
 import { Shop } from './pages/shop/shop';
 import { Cart } from './pages/cart/cart';
 import { NotFound } from './pages/not-found/not-found';
+import { Product } from './pages/product/product';
 
 export const routes: Routes = [
   {
@@ -16,6 +17,10 @@ export const routes: Routes = [
   {
     path: 'cart',
     component: Cart,
+  },
+  {
+    path: 'product',
+    component: Product,
   },
   {
     path: 'not-found',
