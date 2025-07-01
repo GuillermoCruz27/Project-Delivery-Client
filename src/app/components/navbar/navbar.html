@@ -1,0 +1,88 @@
+<!-- <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <div>
+      <img src="Logo.jpg" alt="logo" height="40" class="me-2" />
+      <span class="navbar-brand">Fast Delivery</span>
+    </div>
+
+    <form class="d-flex">
+      <mat-form-field appearance="outline">
+        <mat-label>Buscar...</mat-label>
+        <input matInput type="search" />
+        <button mat-icon-button matSuffix>
+          <mat-icon fontIcon="search"></mat-icon>
+        </button>
+      </mat-form-field>
+    </form>
+
+    <div>
+      <button mat-stroked-button class="me-2">Iniciar sesión</button>
+      <button mat-flat-button color="primary">Registrarse</button>
+    </div>
+  </div>
+</nav> -->
+
+<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4">
+  <a class="navbar-brand" routerLink="/">MiTienda</a>
+  <div class="collapse navbar-collapse">
+    <ul class="navbar-nav me-auto">
+      <li class="nav-item"><a class="nav-link" routerLink="/">Inicio</a></li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/shop">Tienda</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/cart">Carrito</a>
+      </li>
+    </ul>
+  </div>
+</nav> -->
+
+<nav class="custom-navbar sticky-top shadow-sm">
+  <div class="navbar-inner">
+    <!-- Columna izquierda: Logo -->
+    <div class="navbar-col navbar-col-left">
+      <a class="navbar-brand" href="#">
+        <img src="Logo.jpg" alt="logo" height="40" />
+        <span>Fast Delivery</span>
+      </a>
+    </div>
+
+    <!-- Columna centro: Barra de búsqueda -->
+    <div class="navbar-col navbar-col-center">
+      <form class="search-form">
+        <input type="search" placeholder="Buscar..." class="search-input" />
+        <button type="submit" class="search-btn">
+          <span class="material-icons">search</span>
+        </button>
+      </form>
+    </div>
+
+    <!-- Columna derecha: Botones y hamburguesa -->
+    <div class="navbar-col navbar-col-right">
+      <!-- Hamburguesa para mobile -->
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+      <label for="nav-toggle" class="nav-toggle-label">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+      <div class="navbar-actions">
+        <button class="btn-outline">Iniciar sesión</button>
+        <button class="btn-primary">Registrarse</button>
+      </div>
+    </div>
+  </div>
+  <!-- Menú mobile -->
+  <div class="navbar-menu-mobile">
+    <div>
+      <button class="btn-outline">Iniciar sesión</button>
+      <button class="btn-primary">Registrarse</button>
+    </div>
+    <form class="search-form mt-2">
+      <input type="search" placeholder="Buscar..." class="search-input" />
+      <button type="submit" class="search-btn">
+        <span class="material-icons">search</span>
+      </button>
+    </form>
+  </div>
+</nav>

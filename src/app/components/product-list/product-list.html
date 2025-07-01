@@ -1,0 +1,7 @@
+<div class="row">
+  @for (item of products; track $index) {
+  <div class="col-md-6 col-lg-4 mb-3">
+    <app-product-card [product]="item"></app-product-card>
+  </div>
+  }
+</div>

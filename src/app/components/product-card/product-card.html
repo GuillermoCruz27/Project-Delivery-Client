@@ -1,0 +1,24 @@
+<mat-card class="example-card" appearance="outlined">
+  <img
+    mat-card-image
+    [src]="product.images[0]"
+    [alt]="product.title"
+    class="product-image"
+  />
+  <mat-card-header>
+    <div class="w-100">
+      <mat-card-title class="mb-0 product-title"
+        >{{ product.title }}</mat-card-title
+      >
+      <div class="w-100 d-flex justify-content-end">
+        <mat-card-subtitle class="mb-0 text-end">
+          {{ product.price | currency:'$' }}
+        </mat-card-subtitle>
+      </div>
+    </div>
+  </mat-card-header>
+  <mat-card-actions class="d-flex justify-content-between">
+    <button matButton>Agregar al carrito</button>
+    <button matButton>Comprar</button>
+  </mat-card-actions>
+</mat-card>

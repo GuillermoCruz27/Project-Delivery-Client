@@ -1,0 +1,84 @@
+.categories-container {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px 0 rgba(60, 72, 88, 0.08);
+  padding: 1.5rem 1.25rem;
+  min-width: 220px;
+}
+
+.categories-header {
+  border-bottom: 1px solid #e3e6ea;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.header-icon {
+  font-size: 2rem;
+}
+
+.clear-btn {
+  min-width: 110px;
+  font-size: 0.95rem;
+  border-radius: 20px;
+  padding: 0.3rem 1.2rem;
+  border-color: #ffb4a2 !important;
+  color: #b23c17 !important;
+  background: #fff5f0 !important;
+  transition: background 0.2s, color 0.2s;
+}
+.clear-btn:disabled {
+  opacity: 0.5;
+}
+.clear-btn:not(:disabled):hover {
+  background: #ffe3db !important;
+  color: #fff !important;
+  border-color: #ff7043 !important;
+}
+
+.categories-list {
+  margin-top: 1rem;
+}
+
+.category-item {
+  transition: background 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+  border-radius: 12px;
+}
+.category-item:hover {
+  background: #f3f6fa;
+  box-shadow: 0 1px 4px 0 rgba(60, 72, 88, 0.06);
+}
+
+.category-checkbox .mat-checkbox-frame {
+  border-radius: 50%;
+  border-width: 2px;
+}
+
+.category-icon {
+  font-size: 1.5rem;
+  color: #1976d2;
+  margin-right: 0.5rem;
+}
+
+.category-name {
+  font-weight: 500;
+  font-size: 1.08rem;
+  color: #222;
+}
+
+.badge {
+  background: #e3f2fd;
+  color: #1976d2;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  padding: 0.15rem 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.selected-info {
+  background: #f3f6fa;
+  border-radius: 10px;
+  margin-top: 1.5rem;
+}
