@@ -1,0 +1,15 @@
+.no-product{
+    font-size: 2em; 
+    margin-bottom: 10px; 
+    line-height: 1em; 
+    margin-top: 10px; 
+    text-transform: uppercase; 
+    font-weight: 100;
+    text-align: center;
+}
+
+.icon-no-product{
+    margin-right: auto; 
+    margin-left: auto; 
+    width: 100%;
+}
