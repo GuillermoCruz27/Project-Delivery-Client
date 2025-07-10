@@ -19,11 +19,11 @@ export const routes: Routes = [
     component: Cart,
   },
   {
-    path: 'product',
+    path: 'product/:id',
     component: Product,
   },
-  {
-    path: 'not-found',
-    component: NotFound,
-  },
+  { 
+    path: '**', 
+    redirectTo: 'not-found' 
+  }
 ];
