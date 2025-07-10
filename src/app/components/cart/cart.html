@@ -1,28 +1,55 @@
 <div class="content">
-    <section class="divProducto">
-        <div class="divImage">
-            <div class="image">
-                <img src="https://material.angular.dev/assets/img/examples/shiba2.jpg" >
+    <section class="divProductos" *ngIf="items.length > 0; else carritoVacio">
+        <article *ngFor="let item of items" class="divProducto">
+            <div class="divImage">
+                <div class="image">
+                    <img [src]="item.imagen_url" alt="{{ item.nombre }}">
+                </div>
             </div>
-        </div>
-        <div class="detProducto">
-            <div class="nombreProducto">
-                <h4>Nombre del producto</h4>
+            <div class="detProducto">
+                <div class="nombreProducto">
+                    <h4>{{ item.nombre }}</h4>
+                </div>
+                <p>Categoría: {{ item.categoria?.nombre || 'Sin categoría' }}</p>
+                <div class="icon-star">
+                    <mat-icon class="text-warning" aria-hidden="false" aria-label="Estrella" fontIcon="star"></mat-icon>
+                    <mat-icon class="text-warning" aria-hidden="false" aria-label="Estrella" fontIcon="star"></mat-icon>
+                    <mat-icon class="text-warning" aria-hidden="false" aria-label="Estrella" fontIcon="star"></mat-icon>
+                    <mat-icon class="text-warning" aria-hidden="false" aria-label="Estrella" fontIcon="star"></mat-icon>
+                    <mat-icon class="text-warning" aria-hidden="false" aria-label="Estrella" fontIcon="star"></mat-icon>
+                </div>
             </div>
-            <p>Categoria: Pizza</p>
-        </div>
-        <div class="divCantidadPrecio">
-            <div class="cantidad">
-                <button matButton="filled">+</button>
-                <p>1</p>
-                <button matButton="filled">-</button>
+            <div class="divCantidadPrecio">
+                <div class="cantidad">
+                    <button mat-button (click)="aumentarCantidad(item)">+</button>
+                    <p>{{ item.cantidad }}</p>
+                    <button mat-button (click)="disminuirCantidad(item)">-</button>
+                </div>
+                <div class="precio">
+                    <p>$ {{ item.precio | number: '1.2-2' }}</p>
+                </div>
+                <button mat-icon-button color="warn" (click)="eliminar(item)" matTooltip="Eliminar producto" aria-label="Eliminar producto">
+                    <mat-icon class="text-danger">delete</mat-icon>
+                </button>
             </div>
-            <div class="precio">
-                <p>$ 100.000,00</p>
-            </div>
-        </div>
-        
+        </article>
     </section>
+
+    <ng-template #carritoVacio>
+        <div class="divProductos mt-3">
+            <mat-card class="d-flex flex-column align-items-center text-center bg-white" appearance="outlined">
+                <mat-card-content>
+                    <mat-icon color="warn" class="icon-cart">remove_shopping_cart</mat-icon>
+                    <h3>No hay productos en el carrito</h3>
+                    <p>Explora el catálogo y agregá lo que te guste.</p>
+                </mat-card-content>
+                <mat-card-actions class="mt-2 mb-2">
+                    <button mat-raised-button class="bg-button" routerLink="/">Ir a la tienda</button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </ng-template>
+    
     <section class="divResumenPedido">
         <div class="resumenPedido">
             <div class="resumenTitulo">
@@ -30,11 +57,11 @@
             </div>
             <div class="resumenTotal">
                 <h4>Total:</h4>
-                <p>$ 100.000,00</p>
+                <p class="fw-bold fs-6 text-success">$ {{ total | number: '1.2-2' }}</p>
             </div>
         </div>
         <div class="divBotonContinuar">
-            <button matButton="filled">Continuar</button>
+            <button matButton="filled" [disabled]="items.length === 0">Continuar</button>
         </div>
     </section>
 </div>

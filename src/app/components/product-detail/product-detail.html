@@ -63,8 +63,10 @@
                 <p>{{ producto.descripcion }}</p>
             </mat-card-content>
             <mat-card-actions class="p-0 mt-3">
+                <!--
                 <a class="btn btn-primary" role="button" [attr.href]="producto.mercadoPagoLink" target="_blank">
-                    COMPRAR AHORA</a>
+                    COMPRAR AHORA</a>-->
+                <button mat-raised-button color="primary" (click)="agregarAlCarrito()">Agregar al carrito</button>
             </mat-card-actions>
         </div>
     </mat-card>
