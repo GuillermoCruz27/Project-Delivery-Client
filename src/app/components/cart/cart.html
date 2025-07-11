@@ -3,7 +3,7 @@
         <article *ngFor="let item of items" class="divProducto">
             <div class="divImage">
                 <div class="image">
-                    <img [src]="item.imagen_url" alt="{{ item.nombre }}">
+                    <img [src]="'http://localhost:3000'+item.imagen_url" alt="{{ item.nombre }}">
                 </div>
             </div>
             <div class="detProducto">

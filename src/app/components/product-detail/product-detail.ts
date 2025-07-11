@@ -3,13 +3,14 @@ import { Component, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
 import { CartService } from '@app/services/cart.service';
 import { Producto, ProductService } from '@app/services/product.service';
 
 @Component({
   selector: 'app-product-detail',
-  imports: [MatCardModule,MatButtonModule,CommonModule,MatIconModule],
+  imports: [MatCardModule,MatButtonModule,CommonModule,MatIconModule,MatSnackBarModule],
   templateUrl: './product-detail.html',
   styleUrls: ['./product-detail.css'],
 })
@@ -23,7 +24,8 @@ export class ProductDetail implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private productService: ProductService,
-    private carritoService: CartService
+    private carritoService: CartService,
+    private snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
@@ -36,7 +38,7 @@ export class ProductDetail implements OnInit {
           this.loading = false;
           this.producto = res.data;
           this.imagenes = [
-            this.producto.imagen_url, // imagen principal
+            'http://localhost:3000'+this.producto.imagen_url, // imagen principal
           ];
         },
         error: (err) => { 
@@ -60,6 +62,12 @@ export class ProductDetail implements OnInit {
       imagen_url: this.producto.imagen_url,
       categoria: this.producto.categoria
     });
-    alert('Producto agregado al carrito');
+    // Mostrar snackbar
+    this.snackBar.open('Producto agregado al carrito', 'Cerrar', {
+      duration: 3000, // 3 segundos
+      horizontalPosition: 'end',
+      verticalPosition: 'bottom',
+      panelClass: ['snackbar-success']
+    });
   }
 }

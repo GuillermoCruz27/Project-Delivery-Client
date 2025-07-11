@@ -13,3 +13,8 @@
     margin-left: auto; 
     width: 100%;
 }
+
+.snackbar-success {
+  background-color: #4caf50 !important;
+  color: white;
+}
