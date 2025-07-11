@@ -2,14 +2,17 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
 import { CartItem } from '@app/models/cart-item.model';
 import { CartService } from '@app/services/cart.service';
+import { ConfirmDialog } from '../confirm-dialog/confirm-dialog';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-cart-component',
-  imports: [MatCardModule,MatButtonModule,CommonModule,MatIconModule,RouterModule],
+  imports: [MatCardModule,MatButtonModule,CommonModule,MatIconModule,RouterModule,MatDialogModule,MatSnackBarModule],
   templateUrl: './cart.html',
   styleUrl: './cart.css'
 })
@@ -17,7 +20,10 @@ export class CartComponent implements OnInit {
   items: CartItem[] = [];
   total: number = 0;
 
-  constructor(private cartService: CartService) {}
+  constructor(
+    private cartService: CartService,
+    private dialog: MatDialog,
+    private snackBar: MatSnackBar) {}
 
   ngOnInit(): void {
     this.cartService.getCarrito().subscribe(carrito => {
@@ -27,7 +33,24 @@ export class CartComponent implements OnInit {
   }
 
   eliminar(item: CartItem) {
-    this.cartService.eliminarProducto(item.producto_id);
+    const dialogRef = this.dialog.open(ConfirmDialog, {
+      width: '350px',
+      data: {
+        titulo: 'Mensaje de confirmación',
+        mensaje: '¿Estás seguro que deseas eliminar este producto del carrito?',
+      },
+    });
+    dialogRef.afterClosed().subscribe((confirmado) => {
+      if (confirmado) {
+        this.cartService.eliminarProducto(item.producto_id);
+        this.snackBar.open('Producto eliminado del carrito', 'Cerrar', {
+          duration: 3000,
+          horizontalPosition: 'end',
+          verticalPosition: 'bottom',
+          panelClass: ['snackbar-success'],
+        });
+      }
+    });
   }
 
   vaciar() {
