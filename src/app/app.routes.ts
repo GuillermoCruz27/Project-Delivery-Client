@@ -33,6 +33,10 @@ export const routes: Routes = [
   },
   { 
     path: '**', 
+    redirectTo: '404',
+  },
+  { 
+    path: '404', 
     component: NotFound,
   }
 ];

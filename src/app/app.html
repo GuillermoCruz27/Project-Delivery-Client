@@ -1,5 +1,5 @@
-<app-navbar />
+<app-navbar *ngIf="!hideLayoutRoutes.includes(router.url)" />
 <main>
   <router-outlet></router-outlet>
 </main>
-<app-footer />
+<app-footer *ngIf="!hideLayoutRoutes.includes(router.url)" />
