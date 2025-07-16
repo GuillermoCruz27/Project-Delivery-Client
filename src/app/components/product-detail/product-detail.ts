@@ -4,13 +4,13 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { CartService } from '@app/services/cart.service';
 import { Producto, ProductService } from '@app/services/product.service';
 
 @Component({
   selector: 'app-product-detail',
-  imports: [MatCardModule,MatButtonModule,CommonModule,MatIconModule,MatSnackBarModule],
+  imports: [MatCardModule,MatButtonModule,CommonModule,MatIconModule,MatSnackBarModule,RouterModule],
   templateUrl: './product-detail.html',
   styleUrls: ['./product-detail.css'],
 })

@@ -4,6 +4,7 @@ import { Shop } from './pages/shop/shop';
 import { Cart } from './pages/cart/cart';
 import { NotFound } from './pages/not-found/not-found';
 import { Product } from './pages/product/product';
+import { ProductForm } from './pages/product-form/product-form';
 
 export const routes: Routes = [
   {
@@ -22,8 +23,20 @@ export const routes: Routes = [
     path: 'product/:id',
     component: Product,
   },
+  {
+    path: 'new/product',
+    component: ProductForm,
+  },
+  {
+    path: 'product/edit/:id',
+    component: ProductForm,
+  },
   { 
     path: '**', 
-    redirectTo: 'not-found' 
+    redirectTo: '404',
+  },
+  { 
+    path: '404', 
+    component: NotFound,
   }
 ];
