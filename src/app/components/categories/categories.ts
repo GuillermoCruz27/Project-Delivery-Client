@@ -1,8 +1,10 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
+import { Categoria } from '@app/models/categoria.model';
+import { CategoriaService } from '@app/services/categoria.service';
 
 interface Category {
   id: number;
@@ -17,6 +19,8 @@ interface Category {
   templateUrl: './categories.html',
   styleUrls: ['./categories.css'],
 })
+
+/*
 export class Categories {
   @Output() categoriesChanged = new EventEmitter<number[]>();
 
@@ -58,5 +62,42 @@ export class Categories {
 
   get selectedCount(): number {
     return this.categories.filter((category) => category.selected).length;
+  }
+}*/
+
+export class Categories implements OnInit {
+  @Output() categoriesChanged = new EventEmitter<number[]>();
+  categorias: Categoria[] = [];
+
+  constructor(private categoriaService: CategoriaService) {}
+
+  ngOnInit(): void {
+    this.categoriaService.getCategorias().subscribe({
+      next: (data) => {
+        this.categorias = data.map(cat => ({ ...cat, selected: false }));
+      },
+      error: (err) => console.error('Error al cargar categorías', err),
+    });
+  }
+
+  onCategoryChange(): void {
+    const selectedIds = this.categorias
+      .filter((cat) => cat.selected)
+      .map((cat) => cat.id);
+
+    this.categoriesChanged.emit(selectedIds);
+  }
+
+  clearAllFilters(): void {
+    this.categorias.forEach((cat) => (cat.selected = false));
+    this.onCategoryChange();
+  }
+
+  get hasSelectedCategories(): boolean {
+    return this.categorias.some((cat) => cat.selected);
+  }
+
+  get selectedCount(): number {
+    return this.categorias.filter((cat) => cat.selected).length;
   }
 }

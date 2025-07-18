@@ -55,5 +55,9 @@ export class CartService {
     });
     this.carritoSubject.next(carrito);
     localStorage.setItem('carrito', JSON.stringify(carrito));
-    }
+  }
+
+  getCarritoSnapshot(): CartItem[] {
+    return [...this.carrito];
+  }
 }
