@@ -5,6 +5,7 @@ import { Cart } from './pages/cart/cart';
 import { NotFound } from './pages/not-found/not-found';
 import { Product } from './pages/product/product';
 import { ProductForm } from './pages/product-form/product-form';
+import { ClientForm } from './pages/client-form/client-form';
 
 export const routes: Routes = [
   {
@@ -30,6 +31,10 @@ export const routes: Routes = [
   {
     path: 'product/edit/:id',
     component: ProductForm,
+  },
+  {
+    path: 'new/client',
+    component: ClientForm,
   },
   { 
     path: '**', 
