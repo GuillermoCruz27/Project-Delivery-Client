@@ -1,27 +1,6 @@
 # 🚀 Project Delivery - Client
 
-Una aplicac### 🔍 Búsqueda Inteligente en Tiempo Real
-
-- Filtrado instantáneo mientras el usuario escribe
-- Búsqueda por nombre, descripción y categoría
-- Algoritmo de coincidencia avanzado (exacta, inicio de palabra, múltiples términos)
-- Fallback automático si la API no está disponible
-
-🛒 **Gestión de Productos Completa**
-
-![Detalle de Producto](./docs/images/screenshots/detalle_producto.png)
-
-- Visualización detallada de productos con toda la información
-- Carrito de compras funcional
-- Integración con MercadoPago para pagos
-
-📝 **Administración de Inventario**
-
-![Formulario Nuevo Producto](./docs/images/features/formulario_nuevo_producto.png)
-
-- Formularios intuitivos para agregar nuevos productos
-- Validación completa de datos
-- Interface de administración profesionalerce moderna desarrollada con Angular 19, diseñada para ofrecer una experiencia de compra rápida y eficiente con funcionalidades avanzadas de búsqueda y gestión de productos.
+Una aplicación de e-commerce moderna desarrollada con Angular 19, diseñada para ofrecer una experiencia de compra rápida y eficiente con funcionalidades avanzadas de búsqueda y gestión de productos.
 
 ![Angular](https://img.shields.io/badge/Angular-19.0.0-dd0031?style=flat-square&logo=angular)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.8.2-3178c6?style=flat-square&logo=typescript)
@@ -52,7 +31,7 @@ Una aplicac### 🔍 Búsqueda Inteligente en Tiempo Real
 - [💻 Comandos de Desarrollo](#-comandos-de-desarrollo)
 - [🔧 Configuración del Entorno](#-configuración-del-entorno)
 - [📱 Funcionalidades](#-funcionalidades)
-- [🏗️ Arquitectura](#️-arquitectura)
+- [🏗️ Arquitectura](#arquitectura)
 - [🔍 Implementación del Sistema de Búsqueda](#-implementación-del-sistema-de-búsqueda)
 - [📦 Componentes Principales](#-componentes-principales)
 - [🌐 API y Servicios](#-api-y-servicios)
@@ -112,7 +91,7 @@ Una aplicac### 🔍 Búsqueda Inteligente en Tiempo Real
 
 ## 📁 Estructura del Proyecto
 
-```
+```text
 src/
 ├── app/
 │   ├── components/          # Componentes reutilizables
@@ -197,7 +176,7 @@ ng serve --port 4300       # Cambiar puerto
 
 ```bash
 ng build                   # Build de desarrollo
-ng build --prod           # Build de producción
+ng build --configuration=production   # Build de producción
 ng build --watch          # Build con watch mode
 ```
 
@@ -304,9 +283,7 @@ this.searchControl.valueChanges.pipe(debounceTime(150), distinctUntilChanged()).
 - **Estados activos** en la navegación
 - **Página 404** personalizada
 
-## � Funcionalidades
-
-### 🔍 Búsqueda Inteligente en Tiempo Real
+## 🏗️ Arquitectura {#arquitectura}
 
 ### Patrón de Arquitectura
 
@@ -330,7 +307,7 @@ El proyecto sigue una **arquitectura de componentes modulares** con:
 
 ### Flujo de Datos
 
-```
+```mermaid
 Usuario escribe en Navbar →
 ProductService (BehaviorSubject) →
 Home Component →
@@ -501,7 +478,7 @@ ng test --watch=false --browsers=ChromeHeadless
 
 ### Estructura de Tests
 
-```
+```text
 src/
 ├── app/
 │   ├── components/
