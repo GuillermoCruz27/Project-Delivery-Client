@@ -49,9 +49,15 @@
 
     <!-- Columna centro: Barra de búsqueda -->
     <div class="navbar-col navbar-col-center">
-      <form class="search-form">
-        <input type="search" placeholder="Buscar..." class="search-input" />
-        <button type="submit" class="search-btn">
+      <form class="search-form" (ngSubmit)="onSearchSubmit($event)">
+        <input
+          type="search"
+          placeholder="Buscar productos..."
+          class="search-input"
+          [formControl]="searchControl"
+          autocomplete="off"
+        />
+        <button type="submit" class="search-btn" aria-label="Buscar productos">
           <span class="material-icons">search</span>
         </button>
       </form>
@@ -85,9 +91,15 @@
       -->
       <button class="btn-primary" routerLink="/cart">Carrito</button>
     </div>
-    <form class="search-form mt-2">
-      <input type="search" placeholder="Buscar..." class="search-input" />
-      <button type="submit" class="search-btn">
+    <form class="search-form mt-2" (ngSubmit)="onSearchSubmit($event)">
+      <input
+        type="search"
+        placeholder="Buscar productos..."
+        class="search-input"
+        [formControl]="searchControl"
+        autocomplete="off"
+      />
+      <button type="submit" class="search-btn" aria-label="Buscar productos">
         <span class="material-icons">search</span>
       </button>
     </form>
