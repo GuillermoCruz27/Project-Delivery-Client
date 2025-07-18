@@ -1,14 +1,50 @@
 # 🚀 Project Delivery - Client
 
-Una aplicación de e-commerce moderna desarrollada con Angular 19, diseñada para ofrecer una experiencia de compra rápida y eficiente con funcionalidades avanzadas de búsqueda y gestión de productos.
+Una aplicac### 🔍 Búsqueda Inteligente en Tiempo Real
+
+- Filtrado instantáneo mientras el usuario escribe
+- Búsqueda por nombre, descripción y categoría
+- Algoritmo de coincidencia avanzado (exacta, inicio de palabra, múltiples términos)
+- Fallback automático si la API no está disponible
+
+🛒 **Gestión de Productos Completa**
+
+![Detalle de Producto](./docs/images/screenshots/detalle_producto.png)
+
+- Visualización detallada de productos con toda la información
+- Carrito de compras funcional
+- Integración con MercadoPago para pagos
+
+📝 **Administración de Inventario**
+
+![Formulario Nuevo Producto](./docs/images/features/formulario_nuevo_producto.png)
+
+- Formularios intuitivos para agregar nuevos productos
+- Validación completa de datos
+- Interface de administración profesionalerce moderna desarrollada con Angular 19, diseñada para ofrecer una experiencia de compra rápida y eficiente con funcionalidades avanzadas de búsqueda y gestión de productos.
 
 ![Angular](https://img.shields.io/badge/Angular-19.0.0-dd0031?style=flat-square&logo=angular)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.8.2-3178c6?style=flat-square&logo=typescript)
 ![Material](https://img.shields.io/badge/Angular%20Material-20.0.2-673ab7?style=flat-square&logo=material-design)
 ![Bootstrap](https://img.shields.io/badge/Bootstrap-5.3.7-7952b3?style=flat-square&logo=bootstrap)
 
+## 🎯 Vista Previa del Proyecto
+
+### 🏠 Página Principal
+
+![Página Principal](./docs/images/screenshots/pagaina_inicio.png)
+
+### 🔍 Sistema de Búsqueda
+
+![Funcionalidad de Búsqueda](./docs/images/features/funcionalidad_busqueda.png)
+
+### 🛒 Carrito de Compras
+
+![Carrito de Compras](./docs/images/screenshots/carrito%20de%20compra.png)
+
 ## 📋 Tabla de Contenidos
 
+- [🎯 Vista Previa del Proyecto](#-vista-previa-del-proyecto)
 - [🎯 Características Principales](#-características-principales)
 - [🛠️ Tecnologías Utilizadas](#️-tecnologías-utilizadas)
 - [📁 Estructura del Proyecto](#-estructura-del-proyecto)
@@ -17,7 +53,7 @@ Una aplicación de e-commerce moderna desarrollada con Angular 19, diseñada par
 - [🔧 Configuración del Entorno](#-configuración-del-entorno)
 - [📱 Funcionalidades](#-funcionalidades)
 - [🏗️ Arquitectura](#️-arquitectura)
-- [🔍 Sistema de Búsqueda](#-sistema-de-búsqueda)
+- [🔍 Implementación del Sistema de Búsqueda](#-implementación-del-sistema-de-búsqueda)
 - [📦 Componentes Principales](#-componentes-principales)
 - [🌐 API y Servicios](#-api-y-servicios)
 - [🎨 Estilos y UI/UX](#-estilos-y-uiux)
@@ -268,7 +304,9 @@ this.searchControl.valueChanges.pipe(debounceTime(150), distinctUntilChanged()).
 - **Estados activos** en la navegación
 - **Página 404** personalizada
 
-## 🏗️ Arquitectura
+## � Funcionalidades
+
+### 🔍 Búsqueda Inteligente en Tiempo Real
 
 ### Patrón de Arquitectura
 
@@ -300,7 +338,7 @@ ProductList Component →
 ProductCard Components
 ```
 
-## 🔍 Sistema de Búsqueda
+## 🔍 Implementación del Sistema de Búsqueda
 
 ### Algoritmo de Búsqueda
 
