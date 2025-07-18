@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 export interface Producto {
@@ -22,9 +22,20 @@ export class ProductService {
   apiUrlLocal = environment.API_LOCAL + "/productos";
 
   constructor(private http: HttpClient) { }
-
+  /*
   getProducts() {
     return this.http.get(`${this.apiUrl}/products`);
+  }*/
+  getProducts(): Observable<Producto[]> {
+    return this.http.get<any>(`${this.apiUrlLocal}`).pipe(
+      map((res) => res.data as Producto[])
+    );
+  }
+
+  getProductsByCategorias(categorias: number[]): Observable<Producto[]> {
+    return this.http.post<any>(`${this.apiUrlLocal}/filtrar/categorias`, { categorias }).pipe(
+      map((res) => res.data as Producto[])
+    );
   }
 
   getProductById(id: number): Observable<{ success: boolean; data: Producto; message: string }> {

@@ -44,9 +44,9 @@
   </div>
   }
 </div> -->
-
+<!-- 
 <div class="categories-container shadow rounded p-3 bg-white">
-  <!-- Header -->
+  //Header 
   <div
     class="categories-header d-flex align-items-center justify-content-between mb-3"
   >
@@ -66,7 +66,7 @@
     </button>
   </div>
 
-  <!-- Categories List with Checkboxes -->
+  //Categories List with Checkboxes 
   <div class="categories-list">
     @for (category of categories; track category.id) {
     <div class="category-item d-flex align-items-center gap-2 mb-2 p-2 rounded">
@@ -89,7 +89,7 @@
     }
   </div>
 
-  <!-- Selected count -->
+   //Selected count 
   @if (hasSelectedCategories) {
   <div class="selected-info mt-3 p-2 bg-light rounded text-center">
     <small class="text-muted">
@@ -98,5 +98,42 @@
       seleccionada{{ selectedCount > 1 ? 's' : '' }}
     </small>
   </div>
+  }
+</div>
+-->
+
+<div class="categories-container shadow rounded p-3 bg-white">
+  <div class="categories-header d-flex justify-content-between mb-3">
+    <span class="fw-bold fs-5 text-primary">Categorías</span>
+    <button
+      mat-stroked-button
+      color="warn"
+      (click)="clearAllFilters()"
+      [disabled]="!hasSelectedCategories"
+    >
+      Limpiar
+    </button>
+  </div>
+
+  <div class="categories-list">
+    @for (cat of categorias; track cat.id) {
+      <div class="category-item d-flex align-items-center gap-2 mb-2 p-2 rounded">
+        <mat-checkbox
+          [(ngModel)]="cat.selected"
+          (change)="onCategoryChange()"
+        >
+          {{ cat.nombre }}
+        </mat-checkbox>
+      </div>
+    }
+  </div>
+
+  @if (hasSelectedCategories) {
+    <div class="selected-info mt-3 p-2 bg-light rounded text-center">
+      <small class="text-muted">
+        {{ selectedCount }} categoría{{ selectedCount > 1 ? 's' : '' }}
+        seleccionada{{ selectedCount > 1 ? 's' : '' }}
+      </small>
+    </div>
   }
 </div>
