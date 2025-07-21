@@ -11,15 +11,34 @@ Una aplicación de e-commerce moderna desarrollada con Angular 19, diseñada par
 
 ### 🏠 Página Principal
 
+Es la página principal de la tienda online, la primera que ve el usuario al ingresar. Muestra una selección destacada de productos disponibles, organizada de forma visual y atractiva. Desde aquí, los visitantes pueden explorar el catálogo completo, filtrar por categorías o buscar productos específicos. También tiene acceso directo al carrito de compra.
+
 ![Página Principal](./docs/images/screenshots/pagaina_inicio.png)
 
 ### 🔍 Sistema de Búsqueda
+
+El buscador ubicado en el encabezado permite a los usuarios encontrar productos ingresando palabras clave del nombre. A medida que el usuario escribe, se filtran los productos disponibles y se muestran resultados que coinciden con el texto ingresado, mejorando la experiencia de navegación y facilitando el acceso rápido a los productos deseados.
 
 ![Funcionalidad de Búsqueda](./docs/images/features/funcionalidad_busqueda.png)
 
 ### 🛒 Carrito de Compras
 
+La vista del carrito permite a los usuarios revisar los productos seleccionados antes de finalizar la compra. Muestra el nombre, cantidad, precio y una imagen del producto, junto con el total general. Desde aquí se pueden modificar cantidades o eliminar productos.
+
 ![Carrito de Compras](./docs/images/screenshots/carrito%20de%20compra.png)
+
+
+### 🍱​​ Detalles de un producto
+
+En esta vista se presenta información detallada de un producto específico, incluyendo su imagen, descripción, precio y categoría. Permite al usuario ver características clave y añadir el producto al carrito.
+
+![Detalle de un producto](./docs/images/screenshots/detalle_producto.png)
+
+### 📝​ Formulario de producto
+
+El formulario de producto se utiliza para crear o editar un producto en el sistema. Permite cargar el nombre, descripción, precio, categoría e imagen del producto, con validaciones para asegurar que los datos ingresados sean correctos.
+
+![Formulario de producto](./docs/images/features/formulario_nuevo_producto.png)
 
 ## 📋 Tabla de Contenidos
 
